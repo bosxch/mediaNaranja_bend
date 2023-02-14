@@ -5,11 +5,12 @@ const { getAllTickets } = require("../controllers/tickets/getAllTickets");
 const { getTicketbyCode } = require("../controllers/tickets/getTicketbyCode.js");
 const { updateTicket } = require("../controllers/tickets/updateTicket");
 const { deleteTicket } = require("../controllers/tickets/deleteTicket");
-const { validatePostTicket } = require("../middlewares/validatePostTicket")
+const { validatePostTicket } = require("../middlewares/validatePostTicket");
+const { getTicketsbyStore } = require("../controllers/tickets/getTicketsByStore");
 const ticketsRouter = Router();
 
 ticketsRouter.get("/:email", getUserTickets);
-ticketsRouter.get("/", getAllTickets); //ADMIN ONLY
+ticketsRouter.get("/", getTicketsbyStore, getAllTickets); //ADMIN ONLY
 ticketsRouter.get("/:id", getTicketbyCode);
 ticketsRouter.post("/", validatePostTicket, postTicket);
 ticketsRouter.put("/", updateTicket); //ADMIN ONLY

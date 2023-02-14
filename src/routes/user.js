@@ -15,4 +15,4 @@ userRouter.put("/", updateUser)
 userRouter.delete('/', deleteUser)
 
 
-// module.exports = userRouter
+module.exports = userRouter

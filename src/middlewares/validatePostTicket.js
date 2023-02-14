@@ -1,25 +1,15 @@
 const validatePostTicket = (req, res, next) => {
-    const { code, almacen, email } = req.body;
-    const nombresAlmacen = [
-        "BELLO",
-        "APARTADO",
-        "ENVIGADO",
-        "PARQUE BERRIO",
-        "PICHINCHA",
-        "CARABOBO",
-        "CUNDINAMARCA", 
-        "AYACUCHO",
-        "PEREIRA",
-        "BUENOS AIRES",
-        "CENTRAL",
-        "ITAGUI"]
+    const { code, email, almacen } = req.body;
+    const nombresAlmacenes = ['bello', 'apartado', 'envigado', 'parque berrio', 'pichincha', 'carabobo', 'cundinamarca', 'ayacucho', 'pereira', 'buenos aires', 'central', 'itagui'];
+    
     if (!code || isNaN(code)) return res.status(400).send(`insertar código númerico ticket`);
-    if (!almacen) return res.status(400).send(`insertar nombre almacen`);
-    if (almacen) {
-        var existeAlmacen = nombresAlmacen.find(a => a === almacen.toUpperCase())
-        if (!existeAlmacen) return res.status(400).send(`este almacen no existe`)
-    }
     if (!email) return res.status(400).send(`insertar email usuario`)
+    // if (!almacen) {
+    //     return res.status(400).send(`insertar nombre almacen`);
+    // } else {
+    //     var existe = nombresAlmacenes.find((a) => a === almacen.toLowerCase())
+    //     !existe? res.status(400).send(`insertar nombre correcto del almacen`) : next()
+    //     } 
     next()
     }
     

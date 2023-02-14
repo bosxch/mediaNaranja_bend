@@ -2,14 +2,11 @@ const { Ticket } = require('../../db')
 
 const updateTicket = async (req, res) => {
 
-    const { code, almacen } = req.body
-    
-    if (!ticketToUpdate) {
-        res.status(404).json("No hay un ticket con ese código")
-    }
+    const { code, newCode } = req.body
     try {
-        const updated = await Ticket.update({almacen: almacen}, {where: {code: code}})
-        res.status(200).json(updated)
+        const updated = await Ticket.update({code: newCode}, {where: {code: code}})
+        if (updated.length > 0) res.status(200).json(updated)
+        else res.status(404).send("No se encontró el ticket para modificar")
     } catch(error) {
         res.status(404).json(console.log(error))
     }

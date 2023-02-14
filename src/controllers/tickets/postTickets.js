@@ -1,4 +1,4 @@
-const { Ticket, User } = require("../../db");
+const { Ticket, User, Store } = require("../../db");
 
 const postTicket = async(req, res) => {
     try {
@@ -6,14 +6,20 @@ const postTicket = async(req, res) => {
         const { code, almacen, email } = req.body
 
         const user = await User.findOne({where: {email: email}})
-        console.log(user)
+        console.log(user.dataValues.id)
+        const [newStore, created] = await Store.findOrCreate({
+            where: {
+                name: almacen
+            }
+        })
         const newTicket = await Ticket.create({
             code: code,
-            almacen: almacen,
-            userId: user.dataValues.id
+            userId: user.dataValues.id,
+            storeId: newStore.dataValues.id
         })
         return res.status(200).json(`bono agregado correctamente`)
-    } catch (error) { return res.status(400).json({ error: error.message }) }
+    } catch (error) { 
+        return res.status(400).json(console.log(error)) }
 }
 
 module.exports = {

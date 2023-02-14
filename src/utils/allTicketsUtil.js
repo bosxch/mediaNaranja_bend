@@ -6,6 +6,7 @@ const allTickets = async () => {
     const dbTicketsClean = dbTickets.map((e) => {
         return{
             id: e.id,
+            code: e.code,
             dateRegistro: e.dateRegistro,
             almacen: e.almacen,
             userId: e.userId
