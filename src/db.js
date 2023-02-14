@@ -6,7 +6,8 @@ const {
   DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_PORT
 } = process.env;
 
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`, {
+//`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`
+const sequelize = new Sequelize(`postgres://localhost/sorteo_db`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });
@@ -27,8 +28,8 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 const { User, Ticket } = sequelize.models
 
-User.hasMany(Ticket, { foreignKey: 'user_tickets' });
-Ticket.belongsTo(User, { foreignKey: 'user_tickets' });
+User.hasMany(Ticket, { as: 'user_tickets' });
+Ticket.belongsTo(User, { as: 'user_tickets', foreignKey: 'userId' });
 
 module.exports = {
   ...sequelize.models, 
