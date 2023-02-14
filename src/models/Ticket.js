@@ -15,11 +15,11 @@ module.exports = (sequelize) => {
             validate: {
                 isEmail: true
             },
-            allowNull: false,
+           
         },
         almacen: {
             type: DataTypes.STRING,
-            allowNull: false,
+           
         },
     },
     {

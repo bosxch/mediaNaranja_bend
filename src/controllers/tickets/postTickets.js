@@ -9,11 +9,11 @@ const postTicket = async (req, res) => {
 
         const dbTicket = await Ticket.findOrCreate({
             where :{
-                user_tickets : filtredUser.id,
+                user_tickets : filtredUser.dataValues.id,
                 id: ticketId
                 }
         })
-        return res.status(200).json("Favorite added to DB")
+        return res.status(200).json("Tickket added to DB")
     } catch (error) {
         return res.status(403).json({ msg: error })
     }
