@@ -9,12 +9,14 @@ module.exports = (sequelize) => {
             primaryKey: true,
             allowNull: false,
           },
+        code: {
+            type: DataTypes.BIGINT,
+            unique: true,
+            allowNull: false,
+        },
         dateRegistro: {
             type: DataTypes.DATE,
-            unique: true,
-            validate: {
-                isEmail: true
-            },
+            defaultValue: DataTypes.NOW,
             allowNull: false,
         },
         almacen: {
