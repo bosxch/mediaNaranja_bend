@@ -33,6 +33,10 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
+        telephone: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        }
     },
     {
         freezeTableName: true,
