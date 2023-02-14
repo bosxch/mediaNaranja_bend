@@ -25,10 +25,13 @@ let entries = Object.entries(sequelize.models);
 let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]);
 sequelize.models = Object.fromEntries(capsEntries);
 
-const { User, Ticket } = sequelize.models
+const { User, Ticket, Store } = sequelize.models
 
-User.hasMany(Ticket, { foreignKey: 'user_tickets' });
-Ticket.belongsTo(User, { foreignKey: 'user_tickets' });
+User.hasMany(Ticket, {foreignKey: 'userId'});
+Ticket.belongsTo(User, {foreignKey: 'userId'});
+
+Store.hasMany(Ticket, {foreignKey: 'storeId'})
+Ticket.belongsTo(Store, {foreignKey: 'storeId'}) 
 
 module.exports = {
   ...sequelize.models, 
