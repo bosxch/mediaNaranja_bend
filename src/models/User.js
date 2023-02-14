@@ -5,12 +5,11 @@ module.exports = (sequelize) => {
         id: {
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
-            autoIncrement: true,
             primaryKey: true,
             allowNull: false,
           },
         numDocumento: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.BIGINT,
             allowNull: false,
         },
         email: {
@@ -34,7 +33,7 @@ module.exports = (sequelize) => {
             allowNull: false,
         },
         telephone: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.BIGINT,
             allowNull: false
         }
     },
