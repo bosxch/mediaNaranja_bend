@@ -6,7 +6,7 @@ const postTicket = async(req, res) => {
         const { code, almacen, email } = req.body
 
         const user = await User.findOne({where: {email: email}})
-        console.log(user.dataValues.id)
+        console.log(user)
         const [newStore, created] = await Store.findOrCreate({
             where: {
                 name: almacen
