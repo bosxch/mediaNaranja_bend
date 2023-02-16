@@ -20,17 +20,11 @@ module.exports = (sequelize) => {
             },
             allowNull: false,
         },
-        password: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
         nombre: {
             type: DataTypes.STRING,
-            allowNull: false,
         },
         direccion: {
             type: DataTypes.STRING,
-            allowNull: false,
         },
         telephone: {
             type: DataTypes.BIGINT,

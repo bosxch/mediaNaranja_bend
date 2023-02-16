@@ -8,7 +8,6 @@ const allUsers = async () => {
             id: e.id,
             numDocumento: e.numDocumento,
             email: e.email,
-            password: e.password,
             nombre: e.nombre,
             direccion: e.direccion,
             telephone: e.telephone,

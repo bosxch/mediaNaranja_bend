@@ -11,7 +11,7 @@ const ticketsRouter = Router();
 
 ticketsRouter.get("/:email", getUserTickets);
 ticketsRouter.get("/", getTicketsbyStore, getAllTickets); //ADMIN ONLY
-ticketsRouter.get("/:id", getTicketbyCode);
+ticketsRouter.get("/", getTicketbyCode);
 ticketsRouter.post("/", validatePostTicket, postTicket);
 ticketsRouter.put("/", updateTicket); //ADMIN ONLY
 ticketsRouter.delete("/", deleteTicket); //ADMIN ONLY
