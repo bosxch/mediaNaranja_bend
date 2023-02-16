@@ -8,7 +8,7 @@ const allTickets = async () => {
             id: e.id,
             code: e.code,
             dateRegistro: e.dateRegistro,
-            almacen: e.almacen,
+            storeId: e.storeId,
             userId: e.userId
         }
     })
