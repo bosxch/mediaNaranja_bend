@@ -5,5 +5,6 @@ const tickets = require('./tickets');
 
 router.use('/user', user);
 router.use('/tickets', tickets);
+router.use('/store', store)
 
 module.exports = router;
