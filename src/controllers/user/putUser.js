@@ -5,7 +5,7 @@ const { User } = require("../../db")
 const updateUser = async (req, res) => {
 
     const {
-        email, password, nombre, direccion, telephone
+        email, nombre, direccion, telephone
     } = req.body
 
     const getAllUsers = await allUsers()
@@ -15,7 +15,7 @@ const updateUser = async (req, res) => {
     var updatedDetail;
 
     if (userToUpdate) {
-        updatedDetail = userToUpdateUtil(email, password, nombre, direccion, telephone) 
+        updatedDetail = userToUpdateUtil(email, nombre, direccion, telephone) 
     } else {
         res.status(404).json("Usuario no fue encontrado :(")
     }
