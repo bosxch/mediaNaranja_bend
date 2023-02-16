@@ -4,8 +4,6 @@ const validatePostUser = (req, res, next) => {
     } = req.body
     if(!numDocumento) return res.status(404).send(`ingresar num documento`);
     if(!email) return res.status(404).send(`ingresar email usuario`);
-    if(!nombre) return res.status(404).send(`ingresar nombre usuario`);
-    if(!direccion) return res.status(404).send(`ingresar direccion usuario`);
     if(!telephone) return res.status(404).send(`ingresar telephone usuario`);
     next()
 }

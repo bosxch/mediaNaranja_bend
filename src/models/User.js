@@ -22,11 +22,9 @@ module.exports = (sequelize) => {
         },
         nombre: {
             type: DataTypes.STRING,
-            allowNull: false,
         },
         direccion: {
             type: DataTypes.STRING,
-            allowNull: false,
         },
         telephone: {
             type: DataTypes.BIGINT,
