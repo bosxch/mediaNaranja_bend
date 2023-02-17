@@ -2,7 +2,7 @@ const { allTickets } = require('../../utils/allTicketsUtil');
 
 const getTicketbyCode= async (req, res) => {
     try {
-        const { code } = req.body;
+        const { code } = req.query;
         const allTickets = await allTickets()
         const ticket = await allTickets.find((e) => e.code.toString() == code)
         ticket ?
