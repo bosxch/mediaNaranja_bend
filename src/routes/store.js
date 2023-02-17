@@ -5,7 +5,7 @@ const { postStore } = require("../controllers/store/postStore.js");
 
 const ticketsRouter = Router();
 
-ticketsRouter.get("/", getAllStores, getStoreByName);
+ticketsRouter.get("/", getStoreByName, getAllStores);
 ticketsRouter.post("/", postStore);
 
 

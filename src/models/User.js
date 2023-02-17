@@ -10,6 +10,7 @@ module.exports = (sequelize) => {
           },
         numDocumento: {
             type: DataTypes.BIGINT,
+            unique: true,
             allowNull: false,
         },
         email: {
