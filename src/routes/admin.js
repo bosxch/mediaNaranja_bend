@@ -1,6 +1,6 @@
 const { Router } = require("express");
-const { getDataAdmin } = require("../controllers/store/getAllStores.js");
-const { postPasword } = require("../controllers/store/postStore.js");
+const { getDataAdmin } = require("../controllers/store/getDataAdmin.js");
+const { postPasword } = require("../controllers/store/postPasword.js");
 
 const adminRouer = Router();
 
