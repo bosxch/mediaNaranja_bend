@@ -1,13 +1,13 @@
 const { Ticket, User } = require("../../db");
-
+const { allTickets } = require("../../utils/allTicketsUtil")
 const getUserTickets = async (req, res) => {
 
     try{
-        const { email } = req.body;
+        const { numDocumento } = req.body;
         
-        const user = await User.findOne({where: {email: email}})
+        const user = await User.findOne({where: {numDocumento: numDocumento}})
         const userId = user.dataValues.id
-        const userTickets = await Ticket.findAll({where: {userId: userId}})
+        const userTickets = await allTickets.filter(t => t.userId == userId)
         console.log(userTickets)
         res.status(200).json(userTickets)
     }

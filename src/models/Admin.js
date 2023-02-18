@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-    sequelize.define('User', {
+    sequelize.define('Admin', {
         id: {
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
@@ -22,7 +22,7 @@ module.exports = (sequelize) => {
             allowNull: false,
         },
         countdown: {
-            type: DataTypes.smalldatetime, //YYYY-MM-DD hh:mm:ss
+            type: DataTypes.DATE, //YYYY-MM-DD hh:mm:ss
         },
     },
     {
