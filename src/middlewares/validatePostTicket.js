@@ -1,6 +1,6 @@
 const validatePostTicket = (req, res, next) => {
     const { code, email, almacen } = req.body;
-    const nombresAlmacenes = ['bello', 'apartado', 'envigado', 'parque berrio', 'pichincha', 'carabobo', 'cundinamarca', 'ayacucho', 'pereira', 'buenos aires', 'central', 'itagui'];
+    //const nombresAlmacenes = ['bello', 'apartado', 'envigado', 'parque berrio', 'pichincha', 'carabobo', 'cundinamarca', 'ayacucho', 'pereira', 'buenos aires', 'central', 'itagui'];
     
     if (!code || isNaN(code)) return res.status(400).send(`insertar código númerico ticket`);
     if (!email) return res.status(400).send(`insertar email usuario`)

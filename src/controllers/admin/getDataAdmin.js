@@ -1,4 +1,4 @@
-const { Admin } = require("../db")
+const { Admin } = require("../../db")
 
 const getDataAdmin = async (req, res) => {
     try {
