@@ -1,5 +1,5 @@
 const { Admin } = require("../../db");
-import { AdminUpdateCountdown } from "../../utils/AdminUpdateCountdown";
+const { AdminUpdateCountdown } = require("../../utils/AdminUpdateCountdown")
 
 const putCountdown = async (req, res) => {
 

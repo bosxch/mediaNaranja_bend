@@ -1,5 +1,5 @@
 const { Admin } = require("../../db")
-import { AdminToUpdatePassword } from "../../utils/AdminUpdatePassword"
+const { AdminToUpdatePassword } = require("../../utils/AdminUpdatePassword")
 
 const putPassword = async (req, res) => {
 
