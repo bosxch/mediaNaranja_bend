@@ -8,9 +8,7 @@ const putPassword = async (req, res) => {
         email
     } = req.body
     
-    var updatedPassword;
-
-        updatedPassword = AdminToUpdatePassword( password ) 
+    var updatedPassword = AdminToUpdatePassword( password ) 
    
     try {
         const [updatedAdmin] = await Admin.update(updatedPassword, {where: {email: email}})
