@@ -4,7 +4,7 @@ const getByDocumento = async (req, res, next) => {
 
     const { numDocumento } = req.query;
 
-        if(email){
+        if(numDocumento){
             try{
             const usersDB =  await allUsers() 
             const results = usersDB.filter(e => e.numDocumento?.toString() === numDocumento)
