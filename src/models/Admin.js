@@ -22,7 +22,7 @@ module.exports = (sequelize) => {
             allowNull: false,
         },
         countdown: {
-            type: DataTypes.DATE, //YYYY-MM-DD hh:mm:ss
+            type: "DATETIME", //YYYY-MM-DD hh:mm:ss
         },
     },
     {
