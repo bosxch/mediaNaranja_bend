@@ -21,7 +21,7 @@ const {
     `${DB_PASSWORD}`,
      {
        host: `${DB_HOST}`,
-       dialect: 'mysql'
+       dialect: 'mysql',
      }
 );
 sequelize.authenticate().then(() => {

@@ -1,15 +1,15 @@
 const { allUsers } = require("../../utils/allUserUtil")
 
-const getByName = async (req, res, next) => {
+const getByDocumento = async (req, res, next) => {
 
-    const { email } = req.query;
+    const { numDocumento } = req.query;
 
-        if(email){
+        if(numDocumento){
             try{
             const usersDB =  await allUsers() 
-            const results = usersDB.filter(e => e.email?.toLowerCase().includes(email.toLowerCase()))
+            const results = usersDB.filter(e => e.numDocumento?.toString() === numDocumento)
             if (results.length > 0) return res.status(200).json(results)
-            else return res.status(404).json("No hay usuarios con ese nombre")
+            else return res.status(404).json("No hay usuarios con ese documento")
             }
             catch(error) { 
             return res.status(400).json(console.log(error))
@@ -20,5 +20,5 @@ const getByName = async (req, res, next) => {
 }
 
 module.exports = {
-    getByName
+    getByDocumento
 }
