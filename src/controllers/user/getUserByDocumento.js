@@ -7,8 +7,8 @@ const getByDocumento = async (req, res, next) => {
         if(numDocumento){
             try{
             const usersDB =  await allUsers() 
-            const results = usersDB.filter(e => e.numDocumento?.toString() === numDocumento)
-            if (results.length > 0) return res.status(200).json(results)
+            const results = usersDB.find((e) => e.numDocumento?.toString() === numDocumento)
+            if (results) return res.status(200).json(results)
             else return res.status(404).json("No hay usuarios con ese documento")
             }
             catch(error) { 
