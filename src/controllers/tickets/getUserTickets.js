@@ -7,8 +7,9 @@ const getUserTickets = async (req, res) => {
         
         const user = await User.findOne({where: {numDocumento: numDocumento}})
         const userId = user.dataValues.id
-        const userTickets = await allTickets.filter(t => t.userId == userId)
-        console.log(userTickets)
+        const getTickets = await allTickets()
+        const userTickets = await getTickets.filter(t => t.userId == userId)
+        console.log(userId)
         res.status(200).json(userTickets)
     }
     catch(error) {
