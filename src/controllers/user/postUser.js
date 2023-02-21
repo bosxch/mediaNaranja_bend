@@ -6,11 +6,11 @@ const postUser = async (req, res) => {
         const { numDocumento, email, nombre, direccion, telephone } = req.body;
         
             const newUser = await User.create({
-                numDocumento: numDocumento,
+                numDocumento: Number(numDocumento),
                 email: email,
                 nombre: nombre,
                 direccion: direccion,
-                telephone: telephone,
+                telephone: Number(telephone),
             })
         
         return res.status(201).json("Nuevo usuario creado correctamente")
