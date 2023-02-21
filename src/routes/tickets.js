@@ -9,9 +9,9 @@ const { validatePostTicket } = require("../middlewares/validatePostTicket");
 const { getTicketsbyStore } = require("../controllers/tickets/getTicketsByStore");
 const ticketsRouter = Router();
 
-ticketsRouter.get("/", getUserTickets);
 ticketsRouter.get("/", getTicketsbyStore, getAllTickets); //ADMIN ONLY
 ticketsRouter.get("/", getTicketbyCode);
+ticketsRouter.get("/:numDocumento", getUserTickets);
 ticketsRouter.post("/", validatePostTicket, postTicket);
 ticketsRouter.put("/", updateTicket); //ADMIN ONLY
 ticketsRouter.delete("/", deleteTicket); //ADMIN ONLY

@@ -3,7 +3,7 @@ const { allTickets } = require("../../utils/allTicketsUtil")
 const getUserTickets = async (req, res) => {
 
     try{
-        const { numDocumento } = req.body;
+        const { numDocumento } = req.params;
         
         const user = await User.findOne({where: {numDocumento: numDocumento}})
         const userId = user.dataValues.id
