@@ -10,7 +10,7 @@ module.exports = (sequelize) => {
           },
         code: {
             type: DataTypes.BIGINT,
-            unique: true,
+            unique: 'code',
             allowNull: false,
         },
         dateRegistro: {

@@ -10,7 +10,7 @@ module.exports = (sequelize) => {
           },
           email: {
             type: DataTypes.STRING,
-            unique: true,
+            unique: 'email',
             validate: {
                 isEmail: true
             },
@@ -18,7 +18,7 @@ module.exports = (sequelize) => {
         },
         password: {
             type: DataTypes.STRING,
-            unique: true,
+            unique: 'password',
             allowNull: false,
         },
         countdown: {

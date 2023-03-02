@@ -10,12 +10,12 @@ module.exports = (sequelize) => {
           },
         numDocumento: {
             type: DataTypes.BIGINT,
-            unique: true,
+            unique: 'numDocumento',
             allowNull: false,
         },
         email: {
             type: DataTypes.STRING,
-            unique: true,
+            unique: 'email',
             validate: {
                 isEmail: true
             },
