@@ -8,8 +8,7 @@ const adminRouer = Router();
 
 adminRouer.get("/", getDataAdmin);
 adminRouer.post("/", postAdmin);
-adminRouer.put("/", putPassword);
-adminRouer.put("/", putCountdown);
+adminRouer.put("/", putPassword, putCountdown);
 
 
 module.exports = adminRouer
