@@ -20,5 +20,4 @@ const putCountdown = async (req, res) => {
 
 module.exports = {
     putCountdown
-
 };
