@@ -5,7 +5,7 @@ const { jwtTokens } = require('../utils/jwtUtil')
 require('dotenv').config();
 const { REFRESH } = process.env
 
-tokenRouter.get('/refresh_token', (req, res) => {
+tokenRouter.get('/refresh_token', async (req, res) => {
     try {
         const refreshToken = req.cookies.refresh_token;
         if (refreshToken === null) return res.status(401).json({error: 'Null refresh token'});
@@ -20,7 +20,7 @@ tokenRouter.get('/refresh_token', (req, res) => {
     }
 })
 
-tokenRouter.delete('refresh_token', (req, res) => {
+tokenRouter.delete('/refresh_token', async (req, res) => {
 try {
     res.clearCookie('refresh_token');
     return res.status(200).json({message: 'refresh token deleted'})
@@ -29,6 +29,4 @@ try {
 }
 })
 
-module.exports = {
-    tokenRouter
-}
+module.exports = tokenRouter

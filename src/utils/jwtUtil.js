@@ -12,4 +12,6 @@ function jwtTokens({ id }) {
     return ({ accesToken, refreshToken })
 }
 
-export { jwtTokens }
+module.exports = {
+    jwtTokens
+}
