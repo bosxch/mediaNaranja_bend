@@ -20,5 +20,6 @@ function jwtTokenAdmin({ password }) {
 }
 
 module.exports = {
-    jwtTokens
+    jwtTokens,
+    jwtTokenAdmin
 }
