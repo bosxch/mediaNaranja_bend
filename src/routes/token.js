@@ -29,6 +29,5 @@ try {
 }
 })
 
-module.exports = {
-    tokenRouter
-}
+module.exports = tokenRouter
+

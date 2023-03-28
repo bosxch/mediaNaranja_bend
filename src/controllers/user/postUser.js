@@ -1,4 +1,5 @@
-const { User } = require("../../db")
+const { User } = require("../../db");
+const { jwtTokens } = require("../../utils/jwtUtil");
 
 const postUser = async (req, res) => {
 
@@ -13,7 +14,11 @@ const postUser = async (req, res) => {
                 telephone: Number(telephone),
             })
         
-        return res.status(201).json("Nuevo usuario creado correctamente")
+        let tokens = jwtTokens(newUser.id)
+        res.cookie('refresh_token',tokens.refreshToken,{httpOnly: true})
+        return res.status(200).json(results, tokens)
+        
+        //return res.status(201).json("Nuevo usuario creado correctamente")
     }
     catch (error){
         return res.status(400).json(console.log(error))
