@@ -10,7 +10,7 @@ const { authenticateToken } = require('../middlewares/validateJWT');
 const userRouter = Router();
 
 userRouter.get("/", authenticateToken, getByDocumento, getAllUsers )
-userRouter.get("/:id", getUserById)
+userRouter.get("/:id", authenticateToken, getUserById)
 userRouter.post("/", validatePostUser, postUser)
 userRouter.put("/", updateUser)
 userRouter.delete('/', deleteUser)

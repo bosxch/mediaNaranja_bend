@@ -16,7 +16,7 @@ const postUser = async (req, res) => {
         
         let tokens = jwtTokens(newUser.id)
         res.cookie('refresh_token',tokens.refreshToken,{httpOnly: true})
-        return res.status(200).json(results, tokens)
+        return res.status(200).json(tokens)
         
         //return res.status(201).json("Nuevo usuario creado correctamente")
     }
