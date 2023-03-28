@@ -6,8 +6,8 @@ const getByDocumento = async (req, res, next) => {
 
     const { numDocumento } = req.query;
 
-        if(numDocumento){
-            try{
+        if (numDocumento){
+            try {
             const usersDB =  await allUsers() 
             const results = usersDB.find((e) => e.numDocumento == numDocumento)
             if (results) {
@@ -18,7 +18,7 @@ const getByDocumento = async (req, res, next) => {
             }
             else return res.status(404).json("No hay usuarios con ese documento")
             }
-            catch(error) { 
+            catch (error) { 
             return res.status(400).json(console.log({error: error.message}))
             } 
         }else{

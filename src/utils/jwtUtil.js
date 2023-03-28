@@ -1,7 +1,9 @@
 const jwt = require('jsonwebtoken')
 require('dotenv').config();
-const secret = process.env.SECRET
-const refresh = process.env.REFRESH
+const {
+    SECRET, 
+    REFRESH
+} = process.env
 
 function jwtTokens(id) {
     const user = id
