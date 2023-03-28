@@ -3,7 +3,7 @@ require('dotenv').config();
 const {
     SECRET, 
     REFRESH
-} = process.env.SECRET
+} = process.env
 
 function jwtTokens({ id }) {
     const user = id
