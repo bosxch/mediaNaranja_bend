@@ -12,6 +12,13 @@ function jwtTokens({ id }) {
     return ({ accesToken, refreshToken })
 }
 
+function jwtTokenAdmin({ password }) {
+    const user = password
+    const accesToken = jwt.sign( user, SECRET, {expiresIn:'1m'})
+    const refreshToken = jwt.sign( user, REFRESH, {expiresIn:'5m'})
+    return ({ accesToken, refreshToken })
+}
+
 module.exports = {
     jwtTokens
 }
