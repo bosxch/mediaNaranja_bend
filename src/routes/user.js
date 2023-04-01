@@ -12,8 +12,8 @@ const userRouter = Router();
 userRouter.get("/", authenticateToken, getByDocumento, getAllUsers )
 userRouter.get("/:id", authenticateToken, getUserById)
 userRouter.post("/", validatePostUser, postUser)
-userRouter.put("/", updateUser)
-userRouter.delete('/', deleteUser)
+userRouter.put("/", authenticateToken, updateUser)
+userRouter.delete('/', authenticateToken, deleteUser)
 
 
 module.exports = userRouter

@@ -10,11 +10,11 @@ const { getTicketsbyStore } = require("../controllers/tickets/getTicketsByStore"
 const { authenticateToken } = require("../middlewares/validateJWT");
 const ticketsRouter = Router();
 
-ticketsRouter.get("/", getTicketsbyStore, getAllTickets); //ADMIN ONLY
-ticketsRouter.get("/", getTicketbyCode);
-ticketsRouter.get("/:numDocumento", getUserTickets);
-ticketsRouter.post("/", validatePostTicket, postTicket);
-ticketsRouter.put("/", updateTicket); //ADMIN ONLY
-ticketsRouter.delete("/", deleteTicket); //ADMIN ONLY
+ticketsRouter.get("/", authenticateToken, getTicketsbyStore, getAllTickets); //ADMIN ONLY
+ticketsRouter.get("/", authenticateToken, getTicketbyCode);
+ticketsRouter.get("/:numDocumento", authenticateToken, getUserTickets);
+ticketsRouter.post("/", authenticateToken, validatePostTicket, postTicket);
+ticketsRouter.put("/", authenticateToken, updateTicket); //ADMIN ONLY
+ticketsRouter.delete("/", authenticateToken, deleteTicket); //ADMIN ONLY
 
 module.exports = ticketsRouter
