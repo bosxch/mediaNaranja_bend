@@ -7,6 +7,7 @@ const { updateTicket } = require("../controllers/tickets/updateTicket");
 const { deleteTicket } = require("../controllers/tickets/deleteTicket");
 const { validatePostTicket } = require("../middlewares/validatePostTicket");
 const { getTicketsbyStore } = require("../controllers/tickets/getTicketsByStore");
+const { authenticateToken } = require("../middlewares/validateJWT");
 const ticketsRouter = Router();
 
 ticketsRouter.get("/", getTicketsbyStore, getAllTickets); //ADMIN ONLY
