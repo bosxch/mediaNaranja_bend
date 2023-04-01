@@ -6,14 +6,15 @@ const { getUserById } = require("../controllers/user/getUserById")
 const { validatePostUser } = require("../middlewares/validatePostUser");
 const { updateUser } = require('../controllers/user/putUser.js')
 const { deleteUser } = require('../controllers/user/deleteUser.js');
-const { authenticateToken } = require('../middlewares/validateJWT');
+const { authenticateToken,
+    authenticateTokenAdmin } = require('../middlewares/validateJWT');
 const userRouter = Router();
 
 userRouter.get("/", authenticateToken, getByDocumento, getAllUsers )
 userRouter.get("/:id", authenticateToken, getUserById)
 userRouter.post("/", validatePostUser, postUser)
-userRouter.put("/", authenticateToken, updateUser)
-userRouter.delete('/', authenticateToken, deleteUser)
+userRouter.put("/", authenticateTokenAdmin, updateUser)
+userRouter.delete('/', authenticateTokenAdmin, deleteUser)
 
 
 module.exports = userRouter
