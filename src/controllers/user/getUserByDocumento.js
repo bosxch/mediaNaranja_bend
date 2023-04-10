@@ -11,10 +11,11 @@ const getByDocumento = async (req, res, next) => {
             const usersDB =  await allUsers() 
             const results = usersDB.find((e) => e.numDocumento == numDocumento)
             if (results) {
-            console.log(results)
-            let tokens = jwtTokens(results.id)
-            res.cookie('refresh_token',tokens.refreshToken,{httpOnly: true})
-            return res.status(200).json({results, tokens})
+            // console.log(results)
+            // let tokens = jwtTokens(results.id)
+            // res.cookie('refresh_token',tokens.refreshToken,{httpOnly: true})
+            // return res.status(200).json({results, tokens})
+            return res.status(200).json(results)
             }
             else return res.status(404).json("No hay usuarios con ese documento")
             }
