@@ -7,13 +7,15 @@ const { updateTicket } = require("../controllers/tickets/updateTicket");
 const { deleteTicket } = require("../controllers/tickets/deleteTicket");
 const { validatePostTicket } = require("../middlewares/validatePostTicket");
 const { getTicketsbyStore } = require("../controllers/tickets/getTicketsByStore");
+const { jwtMiddleware } = require('../middlewares/jwtMiddleware');
+const { expressjwt: jwt } = require("express-jwt");
 const ticketsRouter = Router();
 
-ticketsRouter.get("/", getTicketsbyStore, getAllTickets); //ADMIN ONLY
-ticketsRouter.get("/", getTicketbyCode);
-ticketsRouter.get("/:numDocumento", getUserTickets);
-ticketsRouter.post("/", validatePostTicket, postTicket);
-ticketsRouter.put("/", updateTicket); //ADMIN ONLY
-ticketsRouter.delete("/", deleteTicket); //ADMIN ONLY
+ticketsRouter.get("/", jwt({ secret: process.env.SECRET, algorithms: ["HS256"] }), jwtMiddleware, getTicketsbyStore, getAllTickets); //ADMIN ONLY
+ticketsRouter.get("/", jwt({ secret: process.env.SECRET, algorithms: ["HS256"] }), jwtMiddleware, getTicketbyCode);
+ticketsRouter.get("/:numDocumento", jwt({ secret: process.env.SECRET, algorithms: ["HS256"] }), jwtMiddleware, getUserTickets);
+ticketsRouter.post("/", jwt({ secret: process.env.SECRET, algorithms: ["HS256"] }), jwtMiddleware, validatePostTicket, postTicket);
+ticketsRouter.put("/", jwt({ secret: process.env.SECRET, algorithms: ["HS256"] }), jwtMiddleware,  updateTicket); //ADMIN ONLY
+ticketsRouter.delete("/", jwt({ secret: process.env.SECRET, algorithms: ["HS256"] }), jwtMiddleware, deleteTicket); //ADMIN ONLY
 
 module.exports = ticketsRouter
