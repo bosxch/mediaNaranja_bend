@@ -6,15 +6,16 @@ const { getUserById } = require("../controllers/user/getUserById")
 const { validatePostUser } = require("../middlewares/validatePostUser");
 const { updateUser } = require('../controllers/user/putUser.js')
 const { deleteUser } = require('../controllers/user/deleteUser.js');
-const { authenticateToken,
-    authenticateTokenAdmin } = require('../middlewares/validateJWT');
+const { jwtMiddleware } = require('../middlewares/jwtMiddleware');
+const { expressjwt: jwt } = require("express-jwt");
 const userRouter = Router();
 
-userRouter.get("/", authenticateToken, getByDocumento, getAllUsers )
-userRouter.get("/:id", authenticateToken, getUserById)
-userRouter.post("/", validatePostUser, postUser)
-userRouter.put("/", authenticateTokenAdmin, updateUser)
-userRouter.delete('/', authenticateTokenAdmin, deleteUser)
+userRouter.get("/", jwt({ secret: process.env.SECRET, algorithms: ["HS256"] }), jwtMiddleware, getByDocumento, getAllUsers )
+userRouter.get("/:id", jwt({ secret: process.env.SECRET, algorithms: ["HS256"] }), jwtMiddleware, getUserById)
+userRouter.post("/", jwt({ secret: process.env.SECRET, algorithms: ["HS256"] }), jwtMiddleware, validatePostUser, postUser)
+userRouter.put("/", jwt({ secret: process.env.SECRET, algorithms: ["HS256"] }), jwtMiddleware, updateUser)
+userRouter.delete('/', jwt({ secret: process.env.SECRET, algorithms: ["HS256"] }), jwtMiddleware, deleteUser)
+
 
 
 module.exports = userRouter
