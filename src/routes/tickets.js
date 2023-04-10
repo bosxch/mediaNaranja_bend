@@ -18,4 +18,5 @@ ticketsRouter.post("/", jwt({ secret: process.env.SECRET, algorithms: ["HS256"] 
 ticketsRouter.put("/", jwt({ secret: process.env.SECRET, algorithms: ["HS256"] }), jwtMiddleware,  updateTicket); //ADMIN ONLY
 ticketsRouter.delete("/", jwt({ secret: process.env.SECRET, algorithms: ["HS256"] }), jwtMiddleware, deleteTicket); //ADMIN ONLY
 
+
 module.exports = ticketsRouter

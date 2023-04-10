@@ -17,4 +17,5 @@ userRouter.put("/", jwt({ secret: process.env.SECRET, algorithms: ["HS256"] }), 
 userRouter.delete('/', jwt({ secret: process.env.SECRET, algorithms: ["HS256"] }), jwtMiddleware, deleteUser)
 
 
+
 module.exports = userRouter

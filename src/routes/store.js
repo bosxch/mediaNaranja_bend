@@ -11,4 +11,5 @@ ticketsRouter.get("/", jwt({ secret: process.env.SECRET, algorithms: ["HS256"] }
 ticketsRouter.post("/", jwt({ secret: process.env.SECRET, algorithms: ["HS256"] }), jwtMiddleware, postStore);
 
 
+
 module.exports = ticketsRouter
