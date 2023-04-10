@@ -2,10 +2,10 @@ const { expressjwt: jwt } = require("express-jwt");
 
 function jwtMiddleware(req, res, next) {
     //console.log(req.auth)
-    if (req.auth.admin !== true) {
+    if (!req.auth || req.auth.admin !== true) {
         //respuesta para el usuario que no es admin
         return res.status(401).send({
-          message: "¡No me jodás! ¿En serio creiste que estabas autorizado?",
+          message: "¡Usted no tiene autorización para acceder",
         });    
       }
     next()
